@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script> 
+    
+    function playerSelection() {
+            player = window.prompt("ROCK ? PAPER? or SCISSORS?");
+            let playerChoice = player.toUpperCase();
+            console.log(playerChoice);
+            return playerChoice;
+        }
+    
+    function computerSelection() {
+        let choice = ["ROCK", "PAPER", "SCISSORS"]
+        computerChoice = choice[Math.floor(Math.random() * choice.length)]
+        console.log(computerChoice);
+        return computerChoice;
+        }
+
+    function playRound() {
+
+        let playerChoice = playerSelection();
+        let computerChoice = computerSelection();
+        let Tie = "ITS A DRAW";
+        let rockWins = "ROCK BEATS PAPER YOU WIN!";
+        let scissorWins = "ROCK BEATS PAPER YOU WIN!";
+        let paperWins = "ROCK BEATS PAPER YOU WIN!";
+
+
+        if (playerChoice === computerChoice) {
+            console.log("Game is a Tie");
+            return Tie;
+        } else if (playerChoice === "ROCK" && computerChoice === "SCISSORS"){
+            console.log("Rock Beat Scissor")
+            return rockWins;
+        }
+        else if (playerChoice === "SCISSORS" && computerChoice === "PAPER"){
+            console.log("Scissor Beat Paper")
+            return scissorWins;
+        }
+        else if (playerChoice === "PAPER" && computerChoice === "ROCK"){
+            console.log("Paper Beats Rock")
+            return paperWins;
+        }
+        }
+
+    playRound()
+
+    </script>
+</body>
+</html>
