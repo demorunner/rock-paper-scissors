@@ -1,94 +1,109 @@
-console.log("Testing");
-
-//computer play random move from choices
-function ComputerPlay() {
-    let rock = "Rock";
-    let paper = "Paper";
-    let scissors = "Scissors";
-    let getRandomValue = Math.random();
-    //console.log(getRandomValue);
-    if (getRandomValue <= 0.33) {
-        //console.log(rock);
-        return rock;
-    } else if (getRandomValue <= 0.66) {
-        //console.log(paper);
-        return paper;
-    } else {
-        //console.log(scissors);
-        return scissors;
+    //gets input from the user
+function playerSelection() {
+        player = window.prompt("ROCK ? PAPER? or SCISSORS?");
+        let playerChoice = player.toUpperCase();
+        console.log(playerChoice);
+        return playerChoice;
     }
-}
 
+//randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’    
+function computerSelection() {
+    let choice = ["ROCK", "PAPER", "SCISSORS"]
+    computerChoice = choice[Math.floor(Math.random() * choice.length)]
+    console.log(computerChoice);
+    return computerChoice;
+    }
+
+//responds to wrong selection
+function wrongSelection(playerSelection) {
+    if ((playerSelection != "ROCK", "PAPER", "SCISSORS")) return "wrong input try again";
+    }
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+
+//plays a single round of Rock Paper Scissors    
+function playRound() {
+
+    let playerChoice = playerSelection();
+    let computerChoice = computerSelection();
+    let Tie = "ITS A DRAW";
+    let rockWins = "ROCK BEATS SCISSORS | YOU WIN!";
+    let scissorWins = "SCISSORS BEATS PAPER | YOU WIN!";
+    let paperWins = "PAPER BEATS ROCK | YOU WIN!";
+    let rockLose = "PAPER BEATS ROCK | YOU LOSE!";
+    let scissorLose = "ROCK BEATS SCISSORS | YOU LOSE!";
+    let paperLose = "SCISSORS BEATS PAPER | YOU LOSE!";
+
+    // game Tie
+    if (playerChoice === computerChoice) {   
+        return Tie;
+
+    // player wins
+    } else if (playerChoice === "ROCK" && computerChoice === "SCISSORS"){
+        playerScore++;
+        return rockWins;
+    }
+    else if (playerChoice === "SCISSORS" && computerChoice === "PAPER"){
+        playerScore++;
+        return scissorWins;
+    }
+    else if (playerChoice === "PAPER" && computerChoice === "ROCK"){
+        playerScore++;
+        return paperWins;
+    }
+
+    //player loose
+    else if (playerChoice === "ROCK" && computerChoice === "PAPER"){
+      computerScore++;
+      return rockLose;
+    }
+    else if (playerChoice === "SCISSORS" && computerChoice === "ROCK"){
+      computerScore++;
+      return scissorLose;
+    }
+    else if (playerChoice === "PAPER" && computerChoice === "SCISSORS"){
+      computerScore++;
+      return paperLose;
+    }
+    else {
+        return console.log(wrongSelection());
+    }
+    
+    }
+
+    
+    //play a 5 round game that keeps score and reports a winner or loser at the end.
 function game() {
-    let roundsPlayed = 0;
-    let playerWin = 0;
-    let computerWin = 0;
-    let gameWinner = "";
 
-    while (roundsPlayed < 5){
-        roundsPlayed++;
-        const computerSelection = ComputerPlay();
-        playerSelection = prompt("Player, please type in your selection (Rock, Paper, Scissors)! ");
-        console.log(playRound(capitalize(playerSelection), computerSelection));
-        console.log("Player win totals " + playerWin);
-        console.log("Computer win totals " + computerWin);
-
-        function playRound(firstLetterCap, computerSelection) {
-
-            let tie = "it's a Tie you selected " + firstLetterCap + computerSelection;
-            let paperBeatRock = "You Win! You selected " + firstLetterCap + computerSelection;
-            let scissorsBeatPaperLoss = "You lose! you selected " + firstLetterCap + computerSelection;
-            let paperBeatRockLoss = "You lose! You selected " + firstLetterCap + computerSelection;
-            let rockBeatScissors = "You Win! You selected " + firstLetterCap + computerSelection;
-            let rockBeatScissorsLoss = "You lose! you selected " + firstLetterCap + computerSelection;
-            let ScissorsBeatPaper = "You Win! You selected " +firstLetterCap + computerSelection;
         
-            if (firstLetterCap === computerSelection) {
-                return tie;
-            } else if ((firstLetterCap === " Paper ") && (computerSelection === "Rock" )) {
-                playerWin++;
-                return paperBeatRock;
-            } else if ((firstLetterCap === " Paper ") && (computerSelection === "Scissors")) {
-                computerWin++;
-                return scissorsBeatPaperLoss;
-            } else if ((firstLetterCap === " Rock ") && (computerSelection === "Paper")) {
-                computerWin++;
-                return paperBeatRockLoss;
-            } else if ((firstLetterCap == " Rock ") && (computerSelection === "Scissors")) {
-                playerWin++;
-                return rockBeatScissors;
-            } else if ((firstLetterCap === " Scissors ") && (computerSelection === "Rock")) {
-                computerWin++;
-                return rockBeatScissorsLoss;
-            } else {
-                playerWin++;
-                return ScissorsBeatPaper;
-            }
-                
+    for (let i = 0; i < 5; i++) {
+
+        console.log (playRound(playerSelection, computerSelection));
+        console.log ("Your Score " + playerScore);
+        console.log("Computer Score " + computerScore);
+
+        //game win report
+        while (i >= 4) {
+
+        if (playerScore > computerScore) {
+
+            console.log("You won the game!");
+            break;
+
+        }
+
+        else if (computerScore > playerScore) {
+            console.log("Computer won the game!");
+            break;
+        }
+            
         }
     }
 
-    if (playerWin > computerWin) {
-        gameWinner = "YOU WIN!";
-    } else if (playerWin === computerWin) {
-        gameWinner = "TIE!";
-    } else {
-        gameWinner = "COMPUTER WINS!";
     }
-
-    //write out the winner on the screen
-console.log("The five game winner is:  " + gameWinner);
     
-}
-
-// function to format/capitalize the input
-function capitalize(playerSelection) {
-    let allLowerCase = playerSelection.toLowerCase();
-    let firstLetterCap = allLowerCase.charAt(0).toUpperCase() + allLowerCase;
-    //console.log(firstLetterCap);
-    return firstLetterCap;
-}
-
-
-//function call game
-game();
+    
+game()
