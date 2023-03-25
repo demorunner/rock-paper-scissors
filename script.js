@@ -57,6 +57,28 @@ function playRound(playerChoice, computerChoice) {
     }
     }
 
+function disableBtn() {
+        document.getElementById("rock-btn").disabled = true;
+        document.getElementById("paper-btn").disabled = true;
+        document.getElementById("scissors-btn").disabled = true;
+    }
+
+function reset() {
+    document.getElementById("rock-btn").disabled = false;
+    document.getElementById("paper-btn").disabled = false;
+    document.getElementById("scissors-btn").disabled = false;
+
+    document.getElementById('player').textContent = "";
+    document.getElementById('comp').textContent = "";
+    document.getElementById('result').textContent = "";
+    document.getElementById('player-score').textContent = "YOUR SCORE : 0";
+    document.getElementById('comp-score').textContent = "COMPUTER SCORE : 0";
+    document.getElementById('game-win').textContent = "";
+
+    playerScore = 0;
+    computerScore = 0;
+}
+
 let playerScore = 0;
 let computerScore = 0;
 let maxScore = 5;
@@ -73,20 +95,8 @@ function game() {
             let winner = playerScore > computerScore ? "YOU" : "COMPUTER";
             let message = winner + " WIN THE GAME!";
         
-            // reset the scores
-            playerScore = 0;
-            computerScore = 0;
-        
-            // display the winner message
-            alert(message + " Do you want to play again?")
             document.getElementById('game-win').textContent = message;
-            document.getElementById('player').textContent = "";
-            document.getElementById('comp').textContent = "";
-            document.getElementById('result').textContent = "";
-            document.getElementById('player-score').textContent = "YOUR SCORE : 0";
-            document.getElementById('comp-score').textContent = "COMPUTER SCORE : 0";
-            document.getElementById('game-win').textContent = "";
-            
+            disableBtn()
           }
     }
 
@@ -99,16 +109,20 @@ const rockBtn = document.getElementById("rock-btn").addEventListener("click", ()
 
 //event listener for PAPER button
 const paperBtn = document.getElementById("paper-btn").addEventListener("click", () => {
-    let playerDiv = document.getElementById('player').textContent = ("PAPER"); 
+    let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "PAPER"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("PAPER"));
     game()
 });
 
 //event listener for SCISSORS button
 const scissorsBtn = document.getElementById("scissors-btn").addEventListener("click", () => {
-    let playerDiv = document.getElementById('player').textContent = ("SCISSORS"); 
+    let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "SCISSORS"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("SCISSORS"));
     game()
+});
+
+const resetBtn = document.getElementById("reset-btn").addEventListener("click", () => {
+    reset()
 });
 
 
