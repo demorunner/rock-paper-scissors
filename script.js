@@ -15,7 +15,15 @@ function playRound(playerChoice, computerChoice) {
 
     playerChoice = playerChoice;
     computerChoice = computerSelection();
-    let compDiv = document.getElementById('comp').textContent = ("COMP CHOOSE : " + computerChoice);
+    let compDiv = document.getElementById('comp').textContent = ("COMPUTER CHOOSE : " + computerChoice);
+    let compImg = document.querySelector("#comp-choice");
+    if (computerChoice === "ROCK") {
+        compImg.src = "imgs/rock.png"; // Replace with the path to your rock image
+      } else if (computerChoice === "PAPER") {
+        compImg.src = "imgs/paper.png"; // Replace with the path to your paper image
+      } else if (computerChoice === "SCISSORS") {
+        compImg.src = "imgs/scissors.png"; // Replace with the path to your scissors image
+      }
     
     let Tie = "ITS A DRAW";
     let rockWins = "ROCK BEATS SCISSORS | YOU WIN!";
@@ -68,11 +76,11 @@ function reset() {
     document.getElementById("paper-btn").disabled = false;
     document.getElementById("scissors-btn").disabled = false;
 
-    document.getElementById('player').textContent = "";
-    document.getElementById('comp').textContent = "";
-    document.getElementById('result').textContent = "";
-    document.getElementById('player-score').textContent = "YOUR SCORE : 0";
-    document.getElementById('comp-score').textContent = "COMPUTER SCORE : 0";
+    document.getElementById('player').textContent = "PLAYER CHOOSE : ?";
+    document.getElementById('comp').textContent = "COMPUTER CHOOSE : ?";
+    document.getElementById('result').textContent = "|";
+    document.getElementById('player-score').textContent = "YOUR SCORE : ?";
+    document.getElementById('comp-score').textContent = "? : COMPUTER SCORE";
     document.getElementById('game-win').textContent = "";
 
     playerScore = 0;
@@ -87,7 +95,7 @@ let maxScore = 5;
 function game() {
 
         let playerScr = document.getElementById('player-score').textContent = ("YOUR SCORE : " + playerScore);
-        let compScr = document.getElementById('comp-score').textContent = ("COMPUTER SCORE : " + computerScore);
+        let compScr = document.getElementById('comp-score').textContent = (computerScore + " : COMPUTER SCORE");
 
         //game win report
         if (playerScore === maxScore || computerScore === maxScore) {
@@ -104,6 +112,10 @@ function game() {
 const rockBtn = document.getElementById("rock-btn").addEventListener("click", () => {
     let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "ROCK"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("ROCK"));
+
+    let img = document.querySelector("#pl-choice");
+    img.src = "imgs/rock.png";
+
     game()
 });
 
@@ -111,6 +123,10 @@ const rockBtn = document.getElementById("rock-btn").addEventListener("click", ()
 const paperBtn = document.getElementById("paper-btn").addEventListener("click", () => {
     let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "PAPER"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("PAPER"));
+
+    let img = document.querySelector("#pl-choice");
+    img.src = "imgs/paper.png";
+
     game()
 });
 
@@ -118,10 +134,18 @@ const paperBtn = document.getElementById("paper-btn").addEventListener("click", 
 const scissorsBtn = document.getElementById("scissors-btn").addEventListener("click", () => {
     let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "SCISSORS"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("SCISSORS"));
+
+    let img = document.querySelector("#pl-choice");
+    img.src = "imgs/scissors.png";
+
     game()
 });
 
 const resetBtn = document.getElementById("reset-btn").addEventListener("click", () => {
+    let img = document.querySelector("#pl-choice");
+    let compImg = document.querySelector("#comp-choice");
+    img.src = "";
+    compImg.src = "";
     reset()
 });
 

@@ -3,9 +3,15 @@
     margin: 0;
     font-family: 'Roboto', arial;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: #362640;
 }
 
 .header {
+    color: #ED2950;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,18 +20,53 @@
     gap: 10px;
 }
 
-.display {
+.choice {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-style: solid;
-    padding: 100px;
+    border-style: dashed;
+    border-color: #ED7725;
+    font-size: 32px;
+    color: #ED2950;
     gap: 100px;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+}
+
+.choice img {
+    height:100px;
+    width:100px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #ED2950;
+    border-style: dashed;
+    border-color: #ED7725;
+    gap: 100px;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #ED2950;
+    border-style: dashed;
+    border-color: #ED7725;
+    padding: 20px 20px;
 }
 
 .announcement {
     display: flex;
     justify-content: center;
+    font-size: 32px;
+    color: #ED2950;
     padding: 20px;
 }
 
@@ -34,6 +75,13 @@
     justify-content: center;
     gap: 20px;
     /* border-style: solid; */
+}
+
+button {
+    background-color: transparent;
+    border: dashed;
+    border-color: #ED2950;
+    padding: 20px;
 }
 
 .btn img {
@@ -52,3 +100,4 @@
     height:100px;
     width:100px;
 }
+

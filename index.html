@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
     <script src="script.js" defer></script>
 </head>
@@ -15,16 +18,23 @@
         <p>First to gain 5 points wins!</p> 
     </div>
     
-    <div class="display">
-        <div id="player"></div>
-        <div id="player-score"></div>
-        <div id="comp-score"></div>
-        <div id="comp"></div>
-        <div id="result"></div>
+    <div class="choice">
+        <div id="player">PLAYER CHOOSE : ?</div>
+        <img id="pl-choice" src="" />
+        <img id="comp-choice" src="" />
+        <div id="comp">COMPUTER CHOOSE : ?</div>   
     </div>
 
+    <div class="score">
+        <div id="player-score">YOUR SCORE : ?</div>
+        <div id="comp-score">? : COMPUTER SCORE</div>
+    </div>
+
+
+    <div class="results" id="result"></div>
+
     <div class="announcement"> 
-    <div id="game-win"></div>
+        <div id="game-win"></div>
     </div>
 
     <div class="buttons">
@@ -42,6 +52,8 @@
     <div class="btn-reset">
         <button class="btn-r" id="reset-btn" type="button"> <img src="imgs/reset.png" /> </button>
     </div>
+
+    <div id="image-container"></div>
    
 </body>
 </html>
