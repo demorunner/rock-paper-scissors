@@ -15,14 +15,14 @@ function playRound(playerChoice, computerChoice) {
 
     playerChoice = playerChoice;
     computerChoice = computerSelection();
-    let compDiv = document.getElementById('comp').textContent = ("COMPUTER CHOOSE : " + computerChoice);
+    let compDiv = document.getElementById('comp').textContent = (computerChoice);
     let compImg = document.querySelector("#comp-choice");
     if (computerChoice === "ROCK") {
-        compImg.src = "imgs/rock.png"; // Replace with the path to your rock image
+        compImg.src = "imgs/ro-ck.png"; // Replace with the path to your rock image
       } else if (computerChoice === "PAPER") {
-        compImg.src = "imgs/paper.png"; // Replace with the path to your paper image
+        compImg.src = "imgs/pa-per.png"; // Replace with the path to your paper image
       } else if (computerChoice === "SCISSORS") {
-        compImg.src = "imgs/scissors.png"; // Replace with the path to your scissors image
+        compImg.src = "imgs/sci-ssors.png"; // Replace with the path to your scissors image
       }
     
     let Tie = "ITS A DRAW";
@@ -76,12 +76,17 @@ function reset() {
     document.getElementById("paper-btn").disabled = false;
     document.getElementById("scissors-btn").disabled = false;
 
-    document.getElementById('player').textContent = "PLAYER CHOOSE : ?";
-    document.getElementById('comp').textContent = "COMPUTER CHOOSE : ?";
-    document.getElementById('result').textContent = "|";
-    document.getElementById('player-score').textContent = "YOUR SCORE : ?";
-    document.getElementById('comp-score').textContent = "? : COMPUTER SCORE";
-    document.getElementById('game-win').textContent = "";
+    document.getElementById('player').textContent = "?";
+    document.getElementById('comp').textContent = "?";
+    document.getElementById('result').textContent = "| | | |";
+    document.getElementById('player-score').textContent = "?";
+    document.getElementById('comp-score').textContent = "?";
+    document.getElementById('game-win').textContent = "- - - -";
+
+    let img = document.querySelector("#pl-choice");
+    let compImg = document.querySelector("#comp-choice");
+    img.src = "imgs/Qmark.png";
+    compImg.src = "imgs/Qmark.png";
 
     playerScore = 0;
     computerScore = 0;
@@ -94,8 +99,8 @@ let maxScore = 5;
 //play a 5 round game that keeps score and reports a winner or loser at the end.
 function game() {
 
-        let playerScr = document.getElementById('player-score').textContent = ("YOUR SCORE : " + playerScore);
-        let compScr = document.getElementById('comp-score').textContent = (computerScore + " : COMPUTER SCORE");
+        let playerScr = document.getElementById('player-score').textContent = (playerScore);
+        let compScr = document.getElementById('comp-score').textContent = (computerScore);
 
         //game win report
         if (playerScore === maxScore || computerScore === maxScore) {
@@ -110,33 +115,33 @@ function game() {
 
 //event listener for ROCK button
 const rockBtn = document.getElementById("rock-btn").addEventListener("click", () => {
-    let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "ROCK"); 
+    let playerDiv = document.getElementById('player').textContent = ("ROCK"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("ROCK"));
 
     let img = document.querySelector("#pl-choice");
-    img.src = "imgs/rock.png";
+    img.src = "imgs/ro-ck.png";
 
     game()
 });
 
 //event listener for PAPER button
 const paperBtn = document.getElementById("paper-btn").addEventListener("click", () => {
-    let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "PAPER"); 
+    let playerDiv = document.getElementById('player').textContent = ("PAPER"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("PAPER"));
 
     let img = document.querySelector("#pl-choice");
-    img.src = "imgs/paper.png";
+    img.src = "imgs/pa-per.png";
 
     game()
 });
 
 //event listener for SCISSORS button
 const scissorsBtn = document.getElementById("scissors-btn").addEventListener("click", () => {
-    let playerDiv = document.getElementById('player').textContent = ("PLAYER CHOOSE : " + "SCISSORS"); 
+    let playerDiv = document.getElementById('player').textContent = ("SCISSORS"); 
     let resultDiv = document.getElementById('result').textContent = (playRound("SCISSORS"));
 
     let img = document.querySelector("#pl-choice");
-    img.src = "imgs/scissors.png";
+    img.src = "imgs/sci-ssors.png";
 
     game()
 });

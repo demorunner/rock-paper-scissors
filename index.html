@@ -14,27 +14,55 @@
 <body>
 
     <div class="header">
-        <h1>ROCK PAPER SCISSORS</h1>
-        <p>First to gain 5 points wins!</p> 
-    </div>
-    
-    <div class="choice">
-        <div id="player">PLAYER CHOOSE : ?</div>
-        <img id="pl-choice" src="" />
-        <img id="comp-choice" src="" />
-        <div id="comp">COMPUTER CHOOSE : ?</div>   
+        <div>
+            <h1>ROCK! PAPER! SCISSORS!</h1>
+        </div> 
+        <p>First to gain 5 points wins!</p>
     </div>
 
-    <div class="score">
-        <div id="player-score">YOUR SCORE : ?</div>
-        <div id="comp-score">? : COMPUTER SCORE</div>
+    <div class="main-display">
+        <div class="player-card">
+            <span id="play-text">PLAYER</span>
+            <div>
+                <img id="pl-choice" src="imgs/Qmark.png" />
+            </div>
+            <div id="player">
+                ?
+            </div>
+        </div>
+        
+        <div class="comp-card">
+            <span id="comp-text">COMPUTER</span>
+            <div>
+                <img id="comp-choice" src="imgs/Qmark.png" />
+            </div>
+            <div id="comp">
+                ?
+            </div> 
+        </div>
+
     </div>
 
+    <div class="score-display">
+        <div class="score-card">
+            <div class="score">
+                <span>SCORE</span>
+                <div id="player-score">?</div>
+            </div>
 
-    <div class="results" id="result"></div>
+            <div class="score">
+                <span>SCORE</span>
+                <div id="comp-score">?</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="results">
+        <div id="result">| | | |</div>
+    </div>
 
     <div class="announcement"> 
-        <div id="game-win"></div>
+        <div id="game-win">- - - -</div>
     </div>
 
     <div class="buttons">
@@ -50,10 +78,8 @@
     </div>
 
     <div class="btn-reset">
-        <button class="btn-r" id="reset-btn" type="button"> <img src="imgs/reset.png" /> </button>
+        <button id="reset-btn" type="button"> PLAY AGAIN! </button>
     </div>
-
-    <div id="image-container"></div>
    
 </body>
 </html>
