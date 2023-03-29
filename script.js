@@ -15,24 +15,27 @@ function playRound(playerChoice, computerChoice) {
 
     playerChoice = playerChoice;
     computerChoice = computerSelection();
+
+    //displays computer choice and images
     let compDiv = document.getElementById('comp').textContent = (computerChoice);
     let compImg = document.querySelector("#comp-choice");
     if (computerChoice === "ROCK") {
-        compImg.src = "imgs/ro-ck.png"; // Replace with the path to your rock image
+        compImg.src = "imgs/ro-ck.png";
       } else if (computerChoice === "PAPER") {
-        compImg.src = "imgs/pa-per.png"; // Replace with the path to your paper image
+        compImg.src = "imgs/pa-per.png";
       } else if (computerChoice === "SCISSORS") {
-        compImg.src = "imgs/sci-ssors.png"; // Replace with the path to your scissors image
+        compImg.src = "imgs/sci-ssors.png";
       }
     
-    let Tie = "ITS A DRAW";
+    let Tie = "ITS A DRAW!";
     let rockWins = "ROCK BEATS SCISSORS | YOU WIN!";
     let scissorWins = "SCISSORS BEATS PAPER | YOU WIN!";
     let paperWins = "PAPER BEATS ROCK | YOU WIN!";
     let rockLose = "PAPER BEATS ROCK | YOU LOSE!";
     let scissorLose = "ROCK BEATS SCISSORS | YOU LOSE!";
     let paperLose = "SCISSORS BEATS PAPER | YOU LOSE!";
-
+    
+    // comparing player and computer choice and incrementing scores
     // game Tie
     if (playerChoice === computerChoice) {
         return Tie;
@@ -65,12 +68,14 @@ function playRound(playerChoice, computerChoice) {
     }
     }
 
+//disables buttons after 5 rounds
 function disableBtn() {
         document.getElementById("rock-btn").disabled = true;
         document.getElementById("paper-btn").disabled = true;
         document.getElementById("scissors-btn").disabled = true;
     }
 
+//function for reset button, sets all values to default
 function reset() {
     document.getElementById("rock-btn").disabled = false;
     document.getElementById("paper-btn").disabled = false;
@@ -102,11 +107,11 @@ function game() {
         let playerScr = document.getElementById('player-score').textContent = (playerScore);
         let compScr = document.getElementById('comp-score').textContent = (computerScore);
 
-        //game win report
+        //reports final result after 5 rounds and calls disable btn function
         if (playerScore === maxScore || computerScore === maxScore) {
             // determine the winner
-            let winner = playerScore > computerScore ? "YOU" : "COMPUTER";
-            let message = winner + " WIN THE GAME!";
+            let winner = playerScore > computerScore ? "PLAYER" : "COMPUTER";
+            let message = winner + " WINS THE GAME!";
         
             document.getElementById('game-win').textContent = message;
             disableBtn()
@@ -146,6 +151,7 @@ const scissorsBtn = document.getElementById("scissors-btn").addEventListener("cl
     game()
 });
 
+//event listener for RESET button
 const resetBtn = document.getElementById("reset-btn").addEventListener("click", () => {
     let img = document.querySelector("#pl-choice");
     let compImg = document.querySelector("#comp-choice");
