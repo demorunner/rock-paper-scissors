@@ -112,6 +112,14 @@ function game() {
             // determine the winner
             let winner = playerScore > computerScore ? "PLAYER" : "COMPUTER";
             let message = winner + " WINS THE GAME!";
+
+            // create an audio element and set the source to the sound file
+            let audio = new Audio();
+            audio.src = winner === "PLAYER" ? "sounds/win-sound.mp3" : "sounds/lose-sound.mp3";
+
+            // play the sound
+            audio.play();
+
         
             document.getElementById('game-win').textContent = message;
             disableBtn()
@@ -126,6 +134,10 @@ const rockBtn = document.getElementById("rock-btn").addEventListener("click", ()
     let img = document.querySelector("#pl-choice");
     img.src = "imgs/ro-ck.png";
 
+    const audio = document.getElementById('btn-click');
+    audio.currentTime = 0; // reset audio to start if played before
+    audio.play();
+
     game()
 });
 
@@ -136,6 +148,10 @@ const paperBtn = document.getElementById("paper-btn").addEventListener("click", 
 
     let img = document.querySelector("#pl-choice");
     img.src = "imgs/pa-per.png";
+
+    let audio = document.getElementById('btn-click');
+    audio.currentTime = 0; // reset audio to start if played before
+    audio.play();
 
     game()
 });
@@ -148,6 +164,10 @@ const scissorsBtn = document.getElementById("scissors-btn").addEventListener("cl
     let img = document.querySelector("#pl-choice");
     img.src = "imgs/sci-ssors.png";
 
+    let audio = document.getElementById('btn-click');
+    audio.currentTime = 0; // reset audio to start if played before
+    audio.play();
+
     game()
 });
 
@@ -157,6 +177,11 @@ const resetBtn = document.getElementById("reset-btn").addEventListener("click", 
     let compImg = document.querySelector("#comp-choice");
     img.src = "";
     compImg.src = "";
+
+    let audio = document.getElementById('btn-reset');
+    audio.currentTime = 0; // reset audio to start if played before
+    audio.play();
+
     reset()
 });
 
