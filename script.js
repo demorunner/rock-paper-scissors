@@ -113,7 +113,7 @@ function game() {
             let winner = playerScore > computerScore ? "PLAYER" : "COMPUTER";
             let message = winner + " WINS THE GAME!";
 
-            // create an audio element and set the source to the sound file
+            // creates an audio element and set the source to the sound file
             let audio = new Audio();
             audio.src = winner === "PLAYER" ? "sounds/win-sound.mp3" : "sounds/lose-sound.mp3";
 
@@ -150,7 +150,7 @@ const paperBtn = document.getElementById("paper-btn").addEventListener("click", 
     img.src = "imgs/pa-per.png";
 
     let audio = document.getElementById('btn-click');
-    audio.currentTime = 0; // reset audio to start if played before
+    audio.currentTime = 0;
     audio.play();
 
     game()
@@ -165,7 +165,7 @@ const scissorsBtn = document.getElementById("scissors-btn").addEventListener("cl
     img.src = "imgs/sci-ssors.png";
 
     let audio = document.getElementById('btn-click');
-    audio.currentTime = 0; // reset audio to start if played before
+    audio.currentTime = 0;
     audio.play();
 
     game()
@@ -179,7 +179,7 @@ const resetBtn = document.getElementById("reset-btn").addEventListener("click", 
     compImg.src = "";
 
     let audio = document.getElementById('btn-reset');
-    audio.currentTime = 0; // reset audio to start if played before
+    audio.currentTime = 0;
     audio.play();
 
     reset()
